@@ -15,7 +15,7 @@ def aho_filtered_matches(search_terms, text, keep='longest', automaton=None):
         automaton.make_automaton()
         
 
-    aho_match_df = pd.DataFrame()
+    aho_match_df = pd.DataFrame([], columns=['start_idx', 'end_idx','search_value'])
     for end_index, (insert_order, original_value) in automaton.iter(text):
         start_index = end_index - len(original_value) + 1
 
